@@ -1,7 +1,14 @@
+import org.gradle.kotlin.dsl.android
+import org.gradle.kotlin.dsl.hilt
+import org.gradle.kotlin.dsl.test
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.kotlin.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -40,6 +47,42 @@ android {
 }
 
 dependencies {
+
+    // Navigation
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.common.ktx)
+    implementation(libs.androidx.navigation.compose)
+
+    // Life Cycle
+
+    // Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Room Data Base
+
+    // Google Material
+    implementation(libs.material)
+    implementation(libs.compose.theme.adapter.x)
+
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Constraint Layout
+    implementation(libs.androidx.constraintlayout)
+
+    // Dagger Hilt
+    implementation(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+    ksp(libs.dagger.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
